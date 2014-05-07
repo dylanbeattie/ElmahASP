@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
-using System.Linq;
 using System.Web;
 using Elmah;
 using Newtonsoft.Json;
 
-namespace ElmahAsp.webhooks {
+namespace ElmahAsp.ElmahAsp {
     /// <summary>HTTP handler that takes JSON-encoded error information from other systems and logs it to ELMAH alongside the 
     /// ordinary ASP.NET runtime errors.</summary>
     public class ElmahHandler : IHttpHandler {
