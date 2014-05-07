@@ -75,7 +75,7 @@
     }
 
     var http = Server.CreateObject("MSXML2.ServerXMLHTTP");
-    var webHookUrl = "http://elmahasp.local/errors/elmah.ashx";
+    var webHookUrl = "http://elmahasp.local/elmahasp/elmah.ashx";
     http.open("POST", webHookUrl, false);
     http.setRequestHeader("Content-Type", "application/json");
     http.send(JSON.stringify(jsonData));
