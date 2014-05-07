@@ -6,10 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ElmahAsp {
-    public partial class kaboom : System.Web.UI.Page {
+    public partial class FailPage : Page {
+
         protected void Page_Load(object sender, EventArgs e) {
-            Label notEvenAThing = MakeNullLabel();
-            notEvenAThing.Text = "NULL REFERENCE EXCEPTION! BOOM!";
+            var notEvenAThing = MakeNullLabel();
+            notEvenAThing.Text = "this will fail with a NullReferenceException...";
         }
 
         private Label MakeNullLabel() {

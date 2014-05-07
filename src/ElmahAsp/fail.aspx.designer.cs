@@ -8,8 +8,6 @@
 //------------------------------------------------------------------------------
 
 namespace ElmahAsp {
-    
-    
-    public partial class kaboom {
+    public partial class FailPage {
     }
 }

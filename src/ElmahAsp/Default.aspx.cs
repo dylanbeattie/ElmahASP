@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 namespace ElmahAsp {
     public partial class _Default : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            HeadingLabel.Text = String.Format("Hello, World! (from {0} at {1}", Environment.MachineName, DateTime.Now);
         }
     }
 }

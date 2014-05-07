@@ -3,23 +3,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Elmah error logging for classic ASP</title>
 </head>
 <body>
-    <asp:Label runat="server" ID="HeadingLabel">Heading</asp:Label>
+    <h1>
+        ElmahASP</h1>
+    <h2>
+        Using ELMAH to log classic ASP runtime errors</h2>
+    <h4>
+        Classic ASP errors (click to cause one)</h4>
     <ul>
-        <li><a href="kaboom.aspx">click here to cause an ASP.NET runtime error</a></li>
-        <li><a href="kaboom.asp">click here to cause a classic ASP error</a></li>
-        <li><a href="elmah.axd">click here for the ELMAH logs</a></li>
+        <li><a href="adodb_connection_fail.asp">ADODB Connection Timeout</a></li>
+        <li><a href="createobject_fail.asp">Server.CreateObject failure</a></li>
+        <li><a href="scripting_fail.asp">JScript Runtime Error</a></li>
+        <li>
+            <form action="scripting_fail.asp?foo=bar&baz=1237&codes=1&codes=2&codes=3" method="POST">
+            <input type="hidden" name="simple" value="simple form value" />
+            <input type="hidden" name="multiple" value="value1" />
+            <input type="hidden" name="multiple" value="value2" />
+            <input type="hidden" name="multiple" value="value3" />
+            <input type="submit" name="verb" value="Runtime error during POST" />
+            </form>
+        </li>
     </ul>
-    <form action="kaboom.asp?foo=bar&baz=1237&codes=1&codes=2&codes=3" method="POST">
-    Mission:
-    <input type="text" name="simple" title="mission" value="simple form value" /><br />
-        <input type="checkbox" name="multiple" value="one" checked="checked "/> One<br />
-        <input type="checkbox" name="multiple" value="two" checked="checked "/> Two<br />
-        <input type="checkbox" name="multiple" value="three" checked="checked "/> Three<br />
-
-    <input type="submit" value="Click here to POST a classic ASP error" />
-    </form>
+    <h4>
+        Other Useful Things</h4>
+    <ul>
+        <li><a href="fail.aspx">Cause an ASP.NET NullReferenceException</a></li>
+    </ul>
+    <hr />
+    <p>
+        <a href="/elmah.axd">Show Elmah logs</a></p>
 </body>
 </html>

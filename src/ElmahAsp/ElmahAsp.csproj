@@ -54,16 +54,13 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Elmah.txt" />
-    <Content Include="jsonhack.asp" />
+    <Content Include="createobject_fail.asp" />
+    <Content Include="scripting_fail.asp" />
     <Content Include="Default.aspx" />
     <Content Include="errors\500.100.asp" />
     <Content Include="errors\jsonizer.js" />
-    <Content Include="kaboom.asp" />
-    <Content Include="kaboom.aspx" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="adodb_connection_fail.asp" />
+    <Content Include="fail.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,21 +77,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="kaboom.aspx.cs">
-      <DependentUpon>kaboom.aspx</DependentUpon>
+    <Compile Include="fail.aspx.cs">
+      <DependentUpon>fail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="kaboom.aspx.designer.cs">
-      <DependentUpon>kaboom.aspx</DependentUpon>
+    <Compile Include="fail.aspx.designer.cs">
+      <DependentUpon>fail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="webhooks\elmah.ashx.cs">
       <DependentUpon>elmah.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

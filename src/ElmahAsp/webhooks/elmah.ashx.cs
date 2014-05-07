@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace ElmahAsp.webhooks {
     /// <summary>HTTP handler that takes JSON-encoded error information from other systems and logs it to ELMAH alongside the 
     /// ordinary ASP.NET runtime errors.</summary>
-    public class elmah : IHttpHandler {
+    public class ElmahHandler : IHttpHandler {
         public void ProcessRequest(HttpContext context) {
             try {
                 var jsonData = new StreamReader(context.Request.InputStream).ReadToEnd();
@@ -18,9 +18,11 @@ namespace ElmahAsp.webhooks {
                 var elmahError = aspError.ToElmahError();
                 //TODO: might be worth putting some code in here that will determine the username based on the cookie collection in the deserialized error object.
                 ErrorLog.GetDefault(HttpContext.Current).Log(elmahError);
+                context.Response.Write("Error logged OK!");
             } catch (Exception ex) {
                 ErrorSignal.FromCurrentContext().Raise(ex);
             }
+            context.Response.Write("THis is a response!");
         }
 
         public bool IsReusable {
@@ -30,10 +32,10 @@ namespace ElmahAsp.webhooks {
 
         public class RemoteError {
             /// <summary> The name of the application that raised the error. </summary>
-            public string ApplicationName { get; set; }
+            public string Application { get; set; }
 
             /// <summary>The host (machine name) where the error occurred</summary>
-            public string HostName { get; set; }
+            public string Host { get; set; }
 
             /// <summary>The HTTP status code of the original error</summary>
             public int StatusCode { get; set; }
@@ -58,8 +60,8 @@ namespace ElmahAsp.webhooks {
 
                 var error = new Elmah.Error();
                 error.Time = DateTime.Now; // ELMAH docs confirm this is server local time, not UTC time.
-                error.ApplicationName = this.ApplicationName;
-                error.HostName = this.HostName;
+                error.ApplicationName = this.Application;
+                error.HostName = this.Host;
                 error.StatusCode = this.StatusCode;
                 error.Message = this.Message;
                 error.Detail = this.Detail;
