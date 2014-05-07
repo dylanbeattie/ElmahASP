@@ -1,7 +1,8 @@
 # ElmahASP #
 
-
 ElmahASP is a bit of code that'll capture classic ASP scripting and runtime errors and pass them to ELMAH so they're logged alongside your ASP.NET and MVC errors.
+
+![](https://raw.githubusercontent.com/dylanbeattie/ElmahASP/master/img/elmah_errors.png)
 
 ## How It Works ##
 
